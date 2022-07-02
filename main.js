@@ -1,4 +1,4 @@
-meaning = "";
+meaning = ""
 
 Webcam.set({
     width : 350,
@@ -37,7 +37,7 @@ function Check()
 function speak()
 {
     var synth = window.speechSynthesis;
-    speak_data = "";
+    speak_data = meaning;
     var utterThis = new SpeechSynthesisUtterance(speak_data);
     utterThis.rate=1;
     synth.speak(utterThis);
@@ -57,31 +57,36 @@ function gotResult(error,results)
         if(results[0].label == "best")
         {
             document.getElementById("emoji1").innerHTML="&#128077;";
-            speak_data = "The meaning of this emoji is best.";
+            meaning = "The meaning of this emoji is best.";
+            speak();
         }
 
         if(results[0].label == "amazing")
         {
             document.getElementById("emoji1").innerHTML="&#128076;";
-            speak_data = "The meaning of this emoji is amazing.";
+            meaning = "The meaning of this emoji is amazing.";
+            speak();
         }
 
         if(results[0].label == "victory")
         {
             document.getElementById("emoji1").innerHTML="&#9996;";
-            speak_data = "The meaning of this emoji is victory.";
+            meaning = "The meaning of this emoji is victory.";
+            speak();
         }
 
         if(results[0].label == "good luck")
         {
-            document.getElementById("emoji1").innerHTML="&#128075;";
-            speak_data = "The meaning of this emoji is good luck.";
+            document.getElementById("emoji1").innerHTML="&#129310;";
+            meaning = "The meaning of this emoji is good luck.";
+            speak();
         }
 
         if(results[0].label == "dislike")
         {
             document.getElementById("emoji1").innerHTML="&#128078;";
-            speak_data = "The meaning of this emoji is dislike.";
+            meaning = "The meaning of this emoji is dislike.";
+            speak();
         }
     }
 }
